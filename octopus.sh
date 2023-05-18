@@ -1,0 +1,1 @@
+near contract call-function as-read-only fusotao.octopus-registry.near get_validator_list_of json-args '{}' network-config mainnet now | jq ".[] | select(.validator_id == \"outerspace_staking.near\") | (.total_stake | tonumber)" | awk '{print $1 / (10**18)}' > octopus.txt
